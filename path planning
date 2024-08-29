@@ -1,0 +1,6 @@
+from models.reinforcement_model import load_reinforcement_model
+
+def plan_path(obstacles, start, goal):
+    model = load_reinforcement_model()
+    path = model.predict((start, goal, obstacles))
+    return path
