@@ -1,0 +1,18 @@
+import cv2
+
+def track_target(video_stream, target_classifier):
+    while True:
+        ret, frame = video_stream.read()
+        if not ret:
+            break
+        
+        targets = target_classifier.detectMultiScale(frame)
+        for (x, y, w, h) in targets:
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        
+        cv2.imshow('Target Tracking', frame)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    video_stream.release()
+    cv2.destroyAllWindows()
