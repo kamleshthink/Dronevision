@@ -1,0 +1,21 @@
+import cv2
+import numpy as np
+from models.cnn_model import load_cnn_model
+
+def detect_obstacles(image):
+    model = load_cnn_model()
+    image = preprocess_image(image)
+    predictions = model.predict(image)
+    obstacles = postprocess_predictions(predictions)
+    return obstacles
+
+def preprocess_image(image):
+     Preprocessing steps like resizing and normalization
+    image = cv2.resize(image, (128, 128))
+    image = image / 255.0
+    return np.expand_dims(image, axis=0)
+
+def postprocess_predictions(predictions):
+     Convert model predictions to obstacle coordinates
+     This is a placeholder
+    return predictions
