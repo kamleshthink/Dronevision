@@ -1,0 +1,19 @@
+drone-project/
+│
+├── src/
+│   ├── obstacle_detection.py
+│   ├── path_planning.py
+│   ├── target_tracking.py
+│   └── utils.py
+│
+├── models/
+│   ├── cnn_model.py
+│   └── reinforcement_model.py
+│
+├── data/
+│   ├── training_data/
+│   └── test_data/
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
